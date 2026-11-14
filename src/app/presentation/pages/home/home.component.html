@@ -1,0 +1,35 @@
+<section id="inicio" class="hero">
+    <h1>{{ perfil.nombreCompleto }}</h1>
+    <p class="subtitle">{{ perfil.titulo }}</p>
+    <a [href]="perfil.githubUrl" target="_blank" rel="noopener">GitHub</a>
+</section>
+
+<section id="perfil">
+    <h2>Perfil profesional</h2>
+    <p>{{ perfil.sobreMi }}</p>
+    <div class="groups">
+        <div>
+            <h3>Habilidades</h3>
+            <ul>@for (h of perfil.habilidades; track h) {
+                <li>{{ h }}</li>
+            }
+            </ul>
+        </div>
+        <div>
+            <h3>Tecnologias</h3>
+            <ul>@for (t of perfil.tecnologias; track t){
+                <li>{{ t }}</li>
+            }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="grid">
+        @for (p of proyectos; track p.id) {
+            <app-card-proyecto [proyecto]="p" />
+        }
+    </div>
+</section>
