@@ -5,11 +5,13 @@ import { HomeComponent } from './presentation/pages/home/home.component';
 import { FooterComponent } from './presentation/components/footer/footer.component';
 import { GetPerfilUsecase } from './core/application/usecases/get-perfil.usecase';
 
+/** Root component that shares the portfolio owner's name with the page shell. */
 @Component({
   imports: [HeaderComponent, HomeComponent, FooterComponent],
   selector: 'app-root',
   templateUrl: './app.html',
 })
 export class App {
+  /** Full name displayed by the header and footer. */
   protected readonly nombre = inject(GetPerfilUsecase).execute().nombreCompleto;
 }

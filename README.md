@@ -1,59 +1,48 @@
-# Portafolio
+# Portafolio personal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6.
+Aplicación web de portafolio personal construida con Angular. Presenta el perfil profesional, las habilidades y tecnologías, y una colección de proyectos con enlaces a sus repositorios y despliegues.
 
-## Development server
+Estudiante: Sebastian Henao Gamboa
 
-To start a local development server, run:
+## Contenido
 
-```bash
-ng serve
+- [Tecnologías](#tecnologías)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Datos del portafolio](#datos-del-portafolio)
+
+## Tecnologías usadas
+
+- Angular 20 y TypeScript
+- Bootstrap 5 y Bootstrap Icons
+- Jest para pruebas unitarias
+- Compodoc para la documentación técnica
+
+## Estructura del proyecto
+
+```text
+src/app/
+├── core/
+│   ├── application/usecases/       # Casos de uso para consultar el perfil y los proyectos
+│   ├── domain/
+│   │   ├── models/                 # Modelos Perfil y Proyecto
+│   │   └── repositories/           # Contrato del repositorio del portafolio
+│   └── infraestructure/
+│       └── repositories/           # Implementación local de los datos
+└── presentation/
+    ├── components/                 # Encabezado, pie de página y tarjeta de proyecto
+    └── pages/home/                 # Página principal del portafolio
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación usa componentes standalone. La configuración global, incluyendo la implementación concreta del repositorio, se encuentra en `src/app/app.config.ts`.
 
-## Code scaffolding
+## Datos del portafolio
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+El perfil y los proyectos se mantienen actualmente como datos locales en `PortafolioLocalRepositoryImpl`. Para actualizar la información mostrada, modifica su implementación en:
 
-```bash
-ng generate component component-name
-```
+`src/app/core/infraestructure/repositories/local-implementation/portafolio-local.repository.impl.ts`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Los tipos de datos están definidos en `src/app/core/domain/models/`.
 
-```bash
-ng generate --help
-```
+## Nota sobre los proyectos
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Muchos de los proyectos mostrados no son desarrollador de forma individual, fueron desarrollados en grupo (esto se puede ver en los contribuidores de cada proyecto).

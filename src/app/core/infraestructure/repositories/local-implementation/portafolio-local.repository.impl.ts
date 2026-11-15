@@ -3,8 +3,10 @@ import { PortafolioRepository } from '../../../domain/repositories/portafolio.re
 import { Perfil } from '../../../domain/models/perfil.model';
 import { Proyecto } from '../../../domain/models/proyecto.model';
 
+/** Supplies portfolio content from the local, in-code data set. */
 @Injectable()
 export class PortafolioLocalRepositoryImpl implements PortafolioRepository{
+  /** Returns the portfolio owner's profile and skills. */
   getPerfil(): Perfil {
     return {
       nombreCompleto: 'Sebastian Henao Gamboa',
@@ -17,6 +19,7 @@ export class PortafolioLocalRepositoryImpl implements PortafolioRepository{
     };
   }
 
+  /** Returns the projects and their repository and deployment links. */
   getProyectos(): Proyecto[] {
     return [
       {
