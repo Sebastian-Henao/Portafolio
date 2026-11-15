@@ -13,11 +13,17 @@ describe('HeaderComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
+    fixture.componentRef.setInput('nombre', 'Ada Lovelace');
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('renders the name and the portfolio navigation links', () => {
     expect(component).toBeTruthy();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('.brand')?.textContent).toContain('Ada Lovelace');
+    expect(compiled.querySelectorAll('nav a')).toHaveLength(2);
+    expect(compiled.querySelector('nav')?.getAttribute('aria-label')).toBe('Principal');
   });
 });

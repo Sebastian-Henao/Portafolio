@@ -13,11 +13,16 @@ describe('FooterComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
+    fixture.componentRef.setInput('nombre', 'Ada Lovelace');
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('renders the current year and the provided name', () => {
     expect(component).toBeTruthy();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.textContent).toContain(String(new Date().getFullYear()));
+    expect(compiled.textContent).toContain('Ada Lovelace');
   });
 });

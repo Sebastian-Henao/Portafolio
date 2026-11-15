@@ -5,15 +5,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   coverageReporters: ["html", "json", "lcov", "text", "clover"],
-  coverageThreshold: {
-    global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
-    },
-  },
-  
+  collectCoverageFrom: ['src/**/*.ts', '!src/**/*.spec.ts', '!src/main.ts'],
   modulePathIgnorePatterns: ["<rootDir>/dist/"],
   testPathIgnorePatterns: [
     "<rootDir>/node_modules/",
@@ -29,10 +21,10 @@ module.exports = {
   collectCoverage: true,
   coverageThreshold: {
     global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
     },
   },
   clearMocks: true,
